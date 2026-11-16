@@ -5,22 +5,78 @@ print('- поможет вам рассчитать Ваш индекс масс
 print('- даст рекомендацию по потреблению воды.')
 print('Давайте познакомимся!')
 
-user_name = input('Как вас зовут? ')
-user_name = user_name.capitalize()
-user_age = input('Сколько вам полных лет? ')
-int_user_age = int(user_age)
+while True:
+    user_name = (input('Как вас зовут? ').strip())
+    if not user_name:
+        print('Ошибка: вы не ввели имя.')
+        continue
+    else:
+        user_name = user_name.capitalize()
+        break
+    
+while True:   
+    try:
+        user_age = input('Сколько вам полных лет? ').strip()
+        if not user_age:
+            print('Ошибка: вы не ввели возраст.')
+            continue
+        user_age = int(user_age)
+        if user_age < 0:
+            print('Ошибка: возраст не может быть отрицательным.')
+            continue
+        elif user_age == 0:
+            print('Ошибка: возраст не может быть равен 0.')
+            continue
+        else:
+            break
+    except ValueError:
+        print('Ошибка: возраст должен быть целым числом') 
 
-weight = input('Какой у вас вес? (в кг.) ')
-height = input('Какой у вас рост? (в м.) ')
+while True:   
+    try:
+        weight = input('Какой у вас вес? (в кг.) ')
+        if not weight:
+            print('Ошибка: вы не ввели вес.')
+            continue
+        weight = float(weight)
+        if weight < 0:
+            print('Ошибка: вес не может быть отрицательным.')
+            continue
+        elif weight == 0:
+            print('Ошибка: вес не может быть равен 0.')
+            continue
+        else:
+            break
+    except ValueError:
+        print('Ошибка: вес должен быть числом') 
 
-float_weight = float(weight)
-float_height = float(height)
+while True:   
+    try:
+        height = input('Какой у вас рост? (в м.) ')
+        if not height:
+            print('Ошибка: вы не ввели рост.')
+            continue
+        height = float(height)
+        if height < 0:
+            print('Ошибка: рост не может быть отрицательным.')
+            continue
+        elif height == 0:
+            print('Ошибка: рост не может быть равен 0.')
+            continue
+        else:
+            break
+    except ValueError:
+        print('Ошибка: рост должен быть числом')
 
-bmi = float_weight / (float_height ** 2)
-water_ml = float_weight * 30
-water_l = water_ml / 1000
 
-print(f'{user_name} , вам {int_user_age}.')
+Recomend_l_on_kg = 30
+Ml_in_l = 1000
+
+bmi = weight / (height ** 2)
+water_ml = weight * Recomend_l_on_kg
+water_l = water_ml / Ml_in_l
+
+print(f'{user_name} , вам {user_age}.')
 print(f'Ваш ИМТ равен: {round(bmi, 1)}.')
 print(f'Рекомендованное количество воды в день: {round(water_l, 2)} литров.')
 print('\nРасчёт окончен. Будьте здоровы!')
