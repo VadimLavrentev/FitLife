@@ -6,17 +6,17 @@ print('- даст рекомендацию по потреблению воды.
 print('Давайте познакомимся!')
 
 while True:
-    user_name = (input('Как вас зовут? ').strip())
+    user_name = input('Как вас зовут? ')
     if not user_name:
         print('Ошибка: вы не ввели имя.')
         continue
     else:
         user_name = user_name.capitalize()
         break
-    
-while True:   
+
+while True:
     try:
-        user_age = input('Сколько вам полных лет? ').strip()
+        user_age = input('Сколько вам полных лет? ')
         if not user_age:
             print('Ошибка: вы не ввели возраст.')
             continue
@@ -30,9 +30,9 @@ while True:
         else:
             break
     except ValueError:
-        print('Ошибка: возраст должен быть целым числом') 
+        print('Ошибка: возраст должен быть целым числом')
 
-while True:   
+while True:
     try:
         weight = input('Какой у вас вес? (в кг.) ')
         if not weight:
@@ -48,9 +48,9 @@ while True:
         else:
             break
     except ValueError:
-        print('Ошибка: вес должен быть числом') 
+        print('Ошибка: вес должен быть числом')
 
-while True:   
+while True:
     try:
         height = input('Какой у вас рост? (в м.) ')
         if not height:
@@ -76,7 +76,7 @@ bmi = weight / (height ** 2)
 water_ml = weight * Recomend_l_on_kg
 water_l = water_ml / Ml_in_l
 
-print(f'{user_name} , вам {user_age}.')
+print(f'{user_name}, вам {user_age}.')
 print(f'Ваш ИМТ равен: {round(bmi, 1)}.')
 print(f'Рекомендованное количество воды в день: {round(water_l, 2)} литров.')
 print('\nРасчёт окончен. Будьте здоровы!')
