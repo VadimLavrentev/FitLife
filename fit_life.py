@@ -5,6 +5,10 @@ print('- поможет вам рассчитать Ваш индекс масс
 print('- даст рекомендацию по потреблению воды.')
 print('Давайте познакомимся!')
 
+ZERO = 0
+RECOMEMD_L_ON_KG = 30
+ML_IN_L = 1000
+
 while True:
     user_name = input('Как вас зовут? ')
     if not user_name:
@@ -21,11 +25,8 @@ while True:
             print('Ошибка: вы не ввели возраст.')
             continue
         user_age = int(user_age)
-        if user_age < 0:
-            print('Ошибка: возраст не может быть отрицательным.')
-            continue
-        elif user_age == 0:
-            print('Ошибка: возраст не может быть равен 0.')
+        if user_age <= ZERO:
+            print('Ошибка: возраст не может быть отрицательным или равен 0.')
             continue
         else:
             break
@@ -39,11 +40,8 @@ while True:
             print('Ошибка: вы не ввели вес.')
             continue
         weight = float(weight)
-        if weight < 0:
-            print('Ошибка: вес не может быть отрицательным.')
-            continue
-        elif weight == 0:
-            print('Ошибка: вес не может быть равен 0.')
+        if weight <= ZERO:
+            print('Ошибка: вес не может быть отрицательным или равен 0.')
             continue
         else:
             break
@@ -57,24 +55,17 @@ while True:
             print('Ошибка: вы не ввели рост.')
             continue
         height = float(height)
-        if height < 0:
-            print('Ошибка: рост не может быть отрицательным.')
-            continue
-        elif height == 0:
-            print('Ошибка: рост не может быть равен 0.')
+        if height <= ZERO:
+            print('Ошибка: рост не может быть отрицательным или равен 0.')
             continue
         else:
             break
     except ValueError:
         print('Ошибка: рост должен быть числом')
 
-
-Recomend_l_on_kg = 30
-Ml_in_l = 1000
-
 bmi = weight / (height ** 2)
-water_ml = weight * Recomend_l_on_kg
-water_l = water_ml / Ml_in_l
+water_ml = weight * RECOMEMD_L_ON_KG
+water_l = water_ml / ML_IN_L
 
 print(f'{user_name}, вам {user_age}.')
 print(f'Ваш ИМТ равен: {round(bmi, 1)}.')
