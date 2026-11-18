@@ -5,7 +5,9 @@ print('- поможет вам рассчитать Ваш индекс масс
 print('- даст рекомендацию по потреблению воды.')
 print('Давайте познакомимся!')
 
-ZERO = 0
+MIN_USER_AGE = 0
+MIN_WEIGHT = 0
+MIN_HEIGHT = 0
 RECOMEMD_L_ON_KG = 30
 ML_IN_L = 1000
 
@@ -25,7 +27,7 @@ while True:
             print('Ошибка: вы не ввели возраст.')
             continue
         user_age = int(user_age)
-        if user_age <= ZERO:
+        if user_age <= MIN_USER_AGE:
             print('Ошибка: возраст не может быть отрицательным или равен 0.')
             continue
         else:
@@ -40,7 +42,7 @@ while True:
             print('Ошибка: вы не ввели вес.')
             continue
         weight = float(weight)
-        if weight <= ZERO:
+        if weight <= MIN_WEIGHT:
             print('Ошибка: вес не может быть отрицательным или равен 0.')
             continue
         else:
@@ -55,7 +57,7 @@ while True:
             print('Ошибка: вы не ввели рост.')
             continue
         height = float(height)
-        if height <= ZERO:
+        if height <= MIN_HEIGHT:
             print('Ошибка: рост не может быть отрицательным или равен 0.')
             continue
         else:
